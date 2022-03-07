@@ -1,7 +1,11 @@
 from ast import walk
 import pygame
 from pygame.locals import *
+from pygame import mixer
 from data import world_data
+
+pygame.mixer.pre_init(44100, -16, 2, 512)
+mixer.init()
 
 pygame.init()
 
@@ -18,20 +22,18 @@ pygame.display.set_caption('Mushroomer')
 tile_size = 50
 
 # Load components
-background = pygame.image.load('components/world/background.png')
-deep_dirt = pygame.image.load('components/world/deepdirt.png')
-grass_dirt = pygame.image.load('components/world/grassdirt.png')
-grass_dirt_left = pygame.image.load('components/world/grassdirtleft.png')
-grass_dirt_right = pygame.image.load('components/world/grassdirtright.png')
-grass_dirt_topleft = pygame.image.load('components/world/grassdirttopleft.png')
-grass_dirt_topright = pygame.image.load('components/world/grassdirttopright.png')
+background = pygame.image.load('data/components/world/background.png')
+deep_dirt = pygame.image.load('data/components/world/deepdirt.png')
+grass_dirt = pygame.image.load('data/components/world/grassdirt.png')
+grass_dirt_left = pygame.image.load('data/components/world/grassdirtleft.png')
+grass_dirt_right = pygame.image.load('data/components/world/grassdirtright.png')
+grass_dirt_topleft = pygame.image.load('data/components/world/grassdirttopleft.png')
+grass_dirt_topright = pygame.image.load('data/components/world/grassdirttopright.png')
 
-
-blob_group = pygame.sprite.Group()
-platform_group = pygame.sprite.Group()
-lava_group = pygame.sprite.Group()
-coin_group = pygame.sprite.Group()
-exit_group = pygame.sprite.Group()
+pygame.mixer.music.load('data/sfx/music.mp3')
+pygame.mixer.music.play(-1, 0.0, 5000)
+#coin_fx = pygame.mixer.Sound('img/coin.wav')
+#coin_fx.set_volume(0.5)
 
 class Player():
     def __init__(self, x, y):
@@ -40,7 +42,7 @@ class Player():
         self.index = 0
         self.counter = 0
         for num in range(1,5):
-            img_right = pygame.image.load(f'components/player/guy{num}.png')
+            img_right = pygame.image.load(f'data/components/player/guy{num}.png')
             img_right = pygame.transform.scale(img_right, (40, 40))
             img_left = pygame.transform.flip(img_right, True, False)
             self.images_right.append(img_right)
