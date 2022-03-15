@@ -1,4 +1,5 @@
 # World data:
+# Below is numeric data of created world, where numbers is types of blocks.
 world_data = [
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
