@@ -2,12 +2,8 @@
 Small python 2d game using pygame lib & .png blocks. 
 ## To install
 
-'git clone https://github.com/AdemaroDante/SadFrog'
+''pip3 install -r req.txt''
 
-'cd SadFrog'
-
-'pip3 install -r req.txt'
-
-'python3 game.py'
+''python3 game.py''
 
 Feel free using this code. 
